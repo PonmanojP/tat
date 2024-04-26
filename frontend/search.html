@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(135deg, rgba(49, 49, 49,0.07) 0%, rgba(49, 49, 49,0.07) 12.5%,rgba(76, 76, 76,0.07) 12.5%, rgba(76, 76, 76,0.07) 25%,rgba(102, 102, 102,0.07) 25%, rgba(102, 102, 102,0.07) 37.5%,rgba(129, 129, 129,0.07) 37.5%, rgba(129, 129, 129,0.07) 50%,rgba(155, 155, 155,0.07) 50%, rgba(155, 155, 155,0.07) 62.5%,rgba(182, 182, 182,0.07) 62.5%, rgba(182, 182, 182,0.07) 75%,rgba(208, 208, 208,0.07) 75%, rgba(208, 208, 208,0.07) 87.5%,rgba(235, 235, 235,0.07) 87.5%, rgba(235, 235, 235,0.07) 100%),linear-gradient(45deg, rgba(5, 5, 5,0.07) 0%, rgba(5, 5, 5,0.07) 12.5%,rgba(39, 39, 39,0.07) 12.5%, rgba(39, 39, 39,0.07) 25%,rgba(73, 73, 73,0.07) 25%, rgba(73, 73, 73,0.07) 37.5%,rgba(107, 107, 107,0.07) 37.5%, rgba(107, 107, 107,0.07) 50%,rgba(141, 141, 141,0.07) 50%, rgba(141, 141, 141,0.07) 62.5%,rgba(175, 175, 175,0.07) 62.5%, rgba(175, 175, 175,0.07) 75%,rgba(209, 209, 209,0.07) 75%, rgba(209, 209, 209,0.07) 87.5%,rgba(243, 243, 243,0.07) 87.5%, rgba(243, 243, 243,0.07) 100%),linear-gradient(90deg, #ffffff,#ffffff);
+        }
+        .search-bar{
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            width: 100%;
+            margin-top: 30px;
+    
+        }
+        .textbox{
+            padding:15px;
+            border-radius: 20px;
+            transform: translateX(25px);
+            width: 500px;
+        }
+
+
+
+
+         /* Style for the recommendation container */
+        .recommendation-container {
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Style for recommended items */
+        .recommendation-list {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 30px;
+            padding-bottom: 10px;
+            justify-content: center;
+        }
+
+        /* Style for recommended item */
+        .recommended-item {
+            position: relative;
+            flex: 0 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: #f4f4f4;
+            margin-left: 20px;
+            margin-top: 30px;
+        }
+
+        /* Style for image inside recommended item */
+        .recommended-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.497);
+            border-radius: 10px;
+        }
+
+        /* Style for button overlay */
+        .recommended-item p {
+            position: absolute;
+            left: 50%;
+            translate: 5px 8px  10px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        /* Hover effect for button */
+        .recommended-item p:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .recommendation-list a{
+            display: flex;
+            align-items: center;
+            
+        }
+
+
+
+
+
+
+    </style>
+    <script>
+        // Sample data for recommendations (can be replaced with dynamic data from backend)
+        // const recommendations = [
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        //     { image: "images/covai.jpg", description: "Spot" },
+        
+            
+
+        // ];
+
+        // // Function to populate recommendation container
+        // function populateRecommendations() {
+        // const recommendationList = document.getElementById('recommendation-list');
+        // recommendations.forEach(item => {
+        //     const recommendationItem = document.createElement('div');
+        //     recommendationItem.classList.add('recommended-item');
+        //     recommendationItem.innerHTML = `
+        //         <img src="${item.image}" alt="Product Image">
+        //         <a href="#"><p>${item.description}</p></a>
+        //     `;
+        //     recommendationItem.addEventListener('click', () => {
+        //         // Handle click event, for example: redirect to product page
+        //         console.log(`Clicked on ${item.description}`);
+        //     });
+        //     recommendationList.appendChild(recommendationItem);
+        // });
+        // }
+
+        // // Populate recommendations when the page loads
+        // window.onload = populateRecommendations;
+
+
+    </script>
+
+
+    
+</head>
+<body>
+    <div>
+        <div class="search-bar">
+            <img src="images/search.png" alt="search" height="30px" width="30px">
+            <div>
+                <input class="textbox" required placeholder="Search Here.....">
+            </div>
+            <img src="images/microphone.png" alt="microphone" height="30px" width="30px" style="margin-left: 50px;">
+        </div>
+
+
+        <div class="recommendation-container">
+            <h2 style="margin-left:150px ;  ">Top Search:</h2>
+            <div id="recommendation-list" class="recommendation-list">
+                <div class="recommended-item">
+                    <img src="images/covai.jpg" alt="Product Image">
+                    <a href="#"><p>Spot</p></a>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/covai.jpg" alt="Product Image">
+                    <a href="#"><p>Spot</p></a>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/covai.jpg" alt="Product Image">
+                    <a href="#"><p>Spot</p></a>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/covai.jpg" alt="Product Image">
+                    <a href="#"><p>Spot</p></a>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/covai.jpg" alt="Product Image">
+                    <a href="#"><p>Spot</p></a>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
